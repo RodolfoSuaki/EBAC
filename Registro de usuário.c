@@ -23,6 +23,7 @@ int registrar ()
 	fprintf(file,","); //adiciona o caracter "," para separar os dados
 	fclose(file); //fecha o arquivo
 	
+	//Registrando usuário e salvando em bloco de notas
 	printf("Digite o seu nome: \n");
 	scanf("%s", nome);
 	
@@ -61,7 +62,7 @@ int consultar ()
 	scanf("%s", cpf);
 	
 	FILE *file;
-	file=fopen(cpf,"r");
+	file=fopen(cpf,"r"); //abrindo o registro do usuário para informar 
 	
 	if (file == NULL)
 	{
@@ -85,12 +86,12 @@ int deletar ()
 	printf("Digite o CPF do usuário que deseja deletar:\n");
 	scanf("%s",cpf);
 	
-	remove(cpf);
+	remove(cpf); //deletando o usuário
 		
 	FILE *file;
 	file=fopen(cpf,"r");
 	
-	if (file==NULL)
+	if (file==NULL) //mostrando a opção caso não tenha o CPF digitado
 	{
 		printf("Não possui nenhum usuário com esse CPF.\n");
 		system("pause");
@@ -112,15 +113,16 @@ int main ()
 		
 		printf("### Bem vindo ao Cartório EBAC ###\n\n");
 		printf("-> Escolha a opção no menu: \n\n");
-		printf("\t 1 - Registrar usuário \n");
-		printf("\t 2 - Consultar usuário \n");
-		printf("\t 3 - Deletar usuário \n\n");
+		printf("\t 1 - Registrar usuário. \n");
+		printf("\t 2 - Consultar usuário. \n");
+		printf("\t 3 - Deletar usuário. \n");
+		printf("\t 4 - Sair do sistema. \n\n");
 		printf("Digite a opção desejada: ");//fim do menu
 		scanf("%d", &opcao);//armazenando a opção do usuário
 		
 		system("cls");
 		
-		switch (opcao)
+		switch (opcao) //opções do menu
 		{
 			case 1:
 			registrar();
@@ -136,6 +138,11 @@ int main ()
 				
 			deletar ();
 			system("pause");
+			break;
+			
+			case 4:
+			printf("Obrigado por usar o sistema. Você está saindo do sistema...");
+			return(0);
 			break;
 				
 			default:
