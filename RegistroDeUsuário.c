@@ -1,7 +1,7 @@
-#include <stdlib.h> //biblioteca para alocar espaÁo na memÛria
-#include <stdio.h> //bilioteca de comunicaÁ„o com o usu·rio
-#include <locale.h> //biblioteca de alocaÁıes de texto por regi„o
-#include <string.h> //biblioteca respons·vel por cuidar das string
+#include <stdlib.h> //biblioteca para alocar espa√ßo na mem√≥ria
+#include <stdio.h> //bilioteca de comunica√ß√£o com o usu√°rio
+#include <locale.h> //biblioteca de aloca√ß√µes de texto por regi√£o
+#include <string.h> //biblioteca respons√°vel por cuidar das string
 
 int registrar ()
 {
@@ -14,16 +14,16 @@ int registrar ()
 	printf("Digite o seu CPF: \n");
 	scanf("%s", cpf);
 	
-	strcpy(arquivo,cpf); //Respons·vel por copiar o valor da vari·vel cpf para a vari·vel arquivo
+	strcpy(arquivo,cpf); //Respons√°vel por copiar o valor da vari√°vel cpf para a vari√°vel arquivo
 	
 	
 	FILE *file;
 	file = fopen(arquivo,"w"); //cria o arquivo
-	fprintf(file,cpf); //salvo o valor da vari·vel
+	fprintf(file,cpf); //salvo o valor da vari√°vel
 	fprintf(file,","); //adiciona o caracter "," para separar os dados
 	fclose(file); //fecha o arquivo
 	
-	//Registrando usu·rio e salvando em bloco de notas
+	//Registrando usu√°rio e salvando em bloco de notas
 	printf("Digite o seu nome: \n");
 	scanf("%s", nome);
 	
@@ -58,19 +58,19 @@ int consultar ()
 	char cpf[40];
 	char conteudo[200];
 	
-	printf("Digite o CPF que vocÍ gostaria de consultar: ");
+	printf("Digite o CPF que voc√™ gostaria de consultar: ");
 	scanf("%s", cpf);
 	
 	FILE *file;
-	file=fopen(cpf,"r"); //abrindo o registro do usu·rio para informar 
+	file=fopen(cpf,"r"); //abrindo o registro do usu√°rio para informar 
 	
 	if (file == NULL)
 	{
-		printf("\n\nN„o h· nenhum registro com esse n˙mero de CPF. \n\n");
+		printf("\n\nN√£o h√° nenhum registro com esse n√∫mero de CPF. \n\n");
 	}
 	while (fgets(conteudo,200,file) != NULL)
 	{
-		printf("\n Essas s„o as informaÁıes do usu·rio consultado: \n");
+		printf("\n Essas s√£o as informa√ß√µes do usu√°rio consultado: \n");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -83,17 +83,17 @@ int deletar ()
 	char cpf[40];
 	
 	setlocale(LC_ALL,"Portuguese");
-	printf("Digite o CPF do usu·rio que deseja deletar:\n");
+	printf("Digite o CPF do usu√°rio que deseja deletar:\n");
 	scanf("%s",cpf);
 	
-	remove(cpf); //deletando o usu·rio
+	remove(cpf); //deletando o usu√°rio
 		
 	FILE *file;
 	file=fopen(cpf,"r");
 	
-	if (file==NULL) //mostrando a opÁ„o caso n„o tenha o CPF digitado
+	if (file==NULL) //mostrando a op√ß√£o caso n√£o tenha o CPF digitado
 	{
-		printf("N„o possui nenhum usu·rio com esse CPF.\n");
+		printf("N√£o possui nenhum usu√°rio com esse CPF.\n");
 		system("pause");
 	}
 	
@@ -101,7 +101,7 @@ int deletar ()
 
 int main ()
 {	
-	int opcao=0;//definindo vari·veis
+	int opcao=0;//definindo vari√°veis
 	int laco=1;
 	
 	for(laco=1;laco=1;)
@@ -111,18 +111,18 @@ int main ()
 		
 		setlocale(LC_ALL, "Portuguese"); //Definindo Linguagem
 		
-		printf("### Bem vindo ao CartÛrio EBAC ###\n\n");
-		printf("-> Escolha a opÁ„o no menu: \n\n");
-		printf("\t 1 - Registrar usu·rio. \n");
-		printf("\t 2 - Consultar usu·rio. \n");
-		printf("\t 3 - Deletar usu·rio. \n");
+		printf("### Bem vindo ao Cart√≥rio EBAC ###\n\n");
+		printf("-> Escolha a op√ß√£o no menu: \n\n");
+		printf("\t 1 - Registrar usu√°rio. \n");
+		printf("\t 2 - Consultar usu√°rio. \n");
+		printf("\t 3 - Deletar usu√°rio. \n");
 		printf("\t 4 - Sair do sistema. \n\n");
-		printf("Digite a opÁ„o desejada: ");//fim do menu
-		scanf("%d", &opcao);//armazenando a opÁ„o do usu·rio
+		printf("Digite a op√ß√£o desejada: ");//fim do menu
+		scanf("%d", &opcao);//armazenando a op√ß√£o do usu√°rio
 		
 		system("cls");
 		
-		switch (opcao) //opÁıes do menu
+		switch (opcao) //op√ß√µes do menu
 		{
 			case 1:
 			registrar();
@@ -141,13 +141,13 @@ int main ()
 			break;
 			
 			case 4:
-			printf("Obrigado por usar o sistema. VocÍ est· saindo do sistema...");
+			printf("Obrigado por usar o sistema. Voc√™ est√° saindo do sistema...");
 			return(0);
 			break;
 				
 			default:
 				
-			printf("VocÍ escolheu a opÁ„o Registrar usu·rio. \n\n");
+			printf("Voc√™ escolheu a op√ß√£o Registrar usu√°rio. \n\n");
 			system("pause");
 			break;
 		}
