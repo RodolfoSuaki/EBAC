@@ -77,6 +77,27 @@ int consultar ()
 	system ("pause");
 }
 
+int deletar ()
+{
+	char cpf[40];
+	
+	setlocale(LC_ALL,"Portuguese");
+	printf("Digite o CPF do usuário que deseja deletar:\n");
+	scanf("%s",cpf);
+	
+	remove(cpf);
+		
+	FILE *file;
+	file=fopen(cpf,"r");
+	
+	if (file==NULL)
+	{
+		printf("Não possui nenhum usuário com esse CPF.\n");
+		system("pause");
+	}
+	
+}
+
 int main ()
 {	
 	int opcao=0;//definindo variáveis
@@ -113,7 +134,7 @@ int main ()
 				
 			case 3:
 				
-			printf("Você escolheu a opção Deletar usuário. \n\n");
+			deletar ();
 			system("pause");
 			break;
 				
